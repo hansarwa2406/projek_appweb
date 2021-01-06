@@ -1,22 +1,6 @@
 <?php
 session_start();
 
-//cek cookie
-if (isset($_COOKIE['wkwk']) && isset($_COOKIE['awokwok'])) {
-	$id = $_COOKIE['wkwk'];
-	$key = $_COOKIE['awokwok'];
-
-	//ambil username dari id
-	$result = mysqli_query($con, "SELECT username FROM security WHERE username = $id");
-
-	$row = mysqli_fetch_assoc($result);
-
-	//cek cookie dan username
-	if ($key === $row["password"]) {
-		$_SESSION['login'] = true;
-	}
-}
-
 if(isset($_SESSION["login"])){
 	header("Location: index.php");
 	exit;
@@ -42,19 +26,16 @@ if ( isset($_POST["login"]) ) {
 
 			$_SESSION["name"] = $row["username"];
 
-			//cek ingat saya
-			if (isset($_POST['ingat'])) {
-				//buat cookie
-				setcookie('wkwk', $row['username'], time() + 1800);
-				setcookie('awokwok', $row['password'], time() + 1800);
-			}
-
 			header("Location: index.php");
 			exit;
 		}
 	}
+}else if(isset($_POST['signup'])){
+	echo "<script>window.location = 'registrasi.php'; </script>";
+
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -82,12 +63,8 @@ if ( isset($_POST["login"]) ) {
 		    	    <label for="exampleInputPassword1">Password</label>
 		    	    <input type="password" class="form-control" name="password" id="password">
 		    	  </div>
-
-		    	  <div class="form-group">
-		    	  	<input type="checkbox" name="ingat" id="ingat">
-		    	  	<label for="ingat"> Ingat saya</label>
-		    	  </div>
 		    	  <button type="submit" class="btn btn-primary" name="login">Login</button>
+		    	  <button type="submit" class="btn btn-warning" name="signup" >Sign Up</button>
 		    	</form>
 		    </section>
 		  </div></center>
