@@ -7,7 +7,7 @@ if (isset($_COOKIE['wkwk']) && isset($_COOKIE['awokwok'])) {
 	$key = $_COOKIE['awokwok'];
 
 	//ambil username dari id
-	$result = mysqli_query($con, "SELECT username FROM security WHERE username = $id");
+	$result = mysqli_query($con, "SELECT username FROM users WHERE username = $id");
 
 	$row = mysqli_fetch_assoc($result);
 
@@ -29,14 +29,14 @@ if ( isset($_POST["login"]) ) {
 	$username=$_POST["username"];
 	$password=$_POST["password"];
 
-	$result = mysqli_query($con, "SELECT * FROM security WHERE username = '$username'");
+	$result = mysqli_query($con, "SELECT * FROM users WHERE username = '$username'");
 
 	//cek username
 	if (mysqli_num_rows($result) === 1){
 
 		//cek password
 		$row = mysqli_fetch_assoc($result);
-		if( $password == $row["password"]){
+		if( password_verify($password, $row["password"])){
 			//set session
 			$_SESSION["login"] = true;
 
@@ -53,6 +53,12 @@ if ( isset($_POST["login"]) ) {
 			exit;
 		}
 	}
+
+	$error = true;
+
+}
+if (isset($_POST["signup"])) {
+	echo "<script>window.location = 'registrasi.php' ;</script>";
 }
 ?>
 
@@ -87,7 +93,14 @@ if ( isset($_POST["login"]) ) {
 		    	  	<input type="checkbox" name="ingat" id="ingat">
 		    	  	<label for="ingat"> Ingat saya</label>
 		    	  </div>
+
+		    	  <?php if (isset($error)) : ?>
+		    	  	<p style="color: red;">Username / Password salah</p>
+		    	  <?php endif ?>
+
 		    	  <button type="submit" class="btn btn-primary" name="login">Login</button>
+
+		    	  <button type="submit" class="btn btn-warning" name="signup">Sign Up</button>
 		    	</form>
 		    </section>
 		  </div></center>
