@@ -41,6 +41,12 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="view_divisi.php">Data Divisi</a>
 			      </li>
+			       <li class="nav-item">
+			        <a class="nav-link" href="view_jobdeks.php">Data Jobdeks</a>
+			      </li>
+			       <li class="nav-item">
+			        <a class="nav-link" href="view_team.php">Data Team</a>
+			      </li>
 			      <li class="nav-item">
 			        <a class="nav-link" href="logout.php">Logout</a>
 			      </li>
@@ -79,6 +85,22 @@
     				    </div>
     				    <div class="card-footer">
     				      <small class="text-muted"><a href="view_divisi.php">Jump In</a></small>
+    				    </div>
+    				  </div>
+    				  <div class="card alterdeck">
+    				    <div class="card-body">
+    				      <h5 class="card-title">Data Jobdeks</h5>
+    				    </div>
+    				    <div class="card-footer">
+    				      <small class="text-muted"><a href="view_jobdeks.php">Jump In</a></small>
+    				    </div>
+    				  </div>
+    				   <div class="card alterdeck">
+    				    <div class="card-body">
+    				      <h5 class="card-title">Data Team</h5>
+    				    </div>
+    				    <div class="card-footer">
+    				      <small class="text-muted"><a href="view_team.php">Jump In</a></small>
     				    </div>
     				  </div>
     				</div>
