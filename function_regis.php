@@ -9,7 +9,7 @@ function registrasi($data){
 	$password2 = mysqli_real_escape_string($con, $data["password2"]);
 
 	//cek username sdh ada atau belum
-	$result = mysqli_query($con, "SELECT username FROM security WHERE username = '$username'");
+	$result = mysqli_query($con, "SELECT username FROM users WHERE username = '$username'");
 	if (mysqli_fetch_assoc($result)) {
 		echo "<script>
 			alert('Maaf Username sudah terdaftar!')
@@ -29,7 +29,7 @@ function registrasi($data){
 	$password = password_hash($password, PASSWORD_DEFAULT);
 
 	//tambah db
-	mysqli_query($con, "INSERT INTO security VALUES ('', '$username', '$password')");
+	mysqli_query($con, "INSERT INTO users VALUES ('', '$username', '$password')");
 	return mysqli_affected_rows($con);
 }
 ?>
