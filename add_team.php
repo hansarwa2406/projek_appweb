@@ -28,15 +28,15 @@
 	}
 	if ($error=="id_acara_kosong")
 	{
-		$pesan="<h3>Maaf, anda harus mengisi id acara</h3>";
+		$pesan="<h3>Maaf, anda harus memilih acara</h3>";
 	}
-	if ($error=="nama_acara_harus_berupa_huruf")
+	if ($error=="acara_harus_tersedia_di_pilihan")
 	{
-		$pesan="<h3>Maaf, nama acara harus berupa huruf</h3>";
+		$pesan="<h3>Maaf, harap pilih acara yang tesedia </h3>";
 	}
-	if ($error=="nama_acara_harus_berupa_huruf")
+	if ($error=="tipe_acara_kosong")
 	{
-		$pesan="<h3>Maaf, nama acara harus berupa huruf</h3>";
+		$pesan="<h3>Maaf, harap pilih tipe acara yang tersedia</h3>";
 	}
 ?>
 
