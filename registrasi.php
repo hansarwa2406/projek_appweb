@@ -3,7 +3,7 @@ require 'function_regis.php';
 
 if( isset($_POST["register"])){
 	if(Registrasi($_POST) > 0){
-		echo "<script>
+		echo "<script>window.location = 'login.php';
 			alert('user baru berhasil ditambahkan!');
 			
 		</script>";
